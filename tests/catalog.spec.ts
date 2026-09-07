@@ -1,5 +1,17 @@
 import { expect, test } from "@playwright/test";
 
+test("search waits for hydration on slow connections", async ({ page }) => {
+  let releaseScripts: () => void = () => {};
+  const scriptsReady = new Promise<void>(resolve => { releaseScripts = resolve; });
+  await page.route(/\/_next\/.*\.js(?:\?|$)/, async route => { await scriptsReady; await route.continue(); });
+  await page.goto("/", { waitUntil: "commit" });
+  try {
+    await expect(page.locator('input[aria-label="Search instruments"]')).toBeDisabled();
+  } finally { releaseScripts(); }
+  await page.getByRole("textbox", { name: "Search instruments" }).fill("nothing-matches");
+  await expect(page.getByRole("heading", { name: "No sounds found." })).toBeVisible();
+});
+
 test("producer can discover an instrument and save it", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Keys", exact: true }).click();
