@@ -1,0 +1,10 @@
+.git
+node_modules
+.next
+out
+api/.venv
+api/__pycache__
+api/.pytest_cache
+.env*
+test-results
+playwright-report

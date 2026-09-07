@@ -1,0 +1,6 @@
+[
+  {"id":"harmonium","name":"The Parlour Harmonium","artist":"Mira Sol","family":"Keys","character":"Warm · Breathing · Intimate","priceCents":4900,"samples":384,"size":"1.2 GB","color":"ochre","frequency":261.63,"edition":"01"},
+  {"id":"cello","name":"Midnight Cello","artist":"Jonah Vale","family":"Strings","character":"Textural · Close · Cinematic","priceCents":6900,"samples":612,"size":"2.4 GB","color":"plum","frequency":130.81,"edition":"02"},
+  {"id":"kalimba","name":"Rainwood Kalimba","artist":"Ada Moss","family":"Percussion","character":"Soft · Wooden · Playful","priceCents":2900,"samples":180,"size":"420 MB","color":"sage","frequency":523.25,"edition":"03"},
+  {"id":"flute","name":"Mountain Air","artist":"Theo Reed","family":"Winds","character":"Airy · Organic · Wide","priceCents":3900,"samples":256,"size":"860 MB","color":"blue","frequency":392,"edition":"04"}
+]
