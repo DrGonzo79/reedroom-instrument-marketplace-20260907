@@ -1,4 +1,9 @@
 FROM python:3.13-slim
+# Refresh the system certificate store when rebuilding this image.
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates \
+ && update-ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
 COPY --from=ghcr.io/astral-sh/uv:0.8.15 /uv /usr/local/bin/uv
 WORKDIR /service
 COPY api/pyproject.toml api/uv.lock ./api/
